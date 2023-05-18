@@ -1,23 +1,12 @@
-import React, { useState , useEffect} from 'react'
-import {SafeAreaView, Text, View } from 'react-native'
-import axios from 'axios'
+import React from 'react'
+import { Text, View } from 'react-native'
 
-function Detail(id){
-
-  async function fetchData(){
-    const response = await axios.GET('https://www.lenasoftware.com/api/v1/en/maestro/1')
-    console.log(id)
-  }
-  useEffect(()=> {
-    fetchData();  
-  }, [])
-
+function Detail ({ route }){ 
+  const{title} = route.params
   return (
-    <SafeAreaView style={{flex:1,}}>
-      <View style={{margin: 10,}}>
-       <Text style={{fontSize:18, fontWeight:'600'}}>{id.content}</Text>
-      </View>
-    </SafeAreaView>
+    <View>
+      <Text style={{fontSize:20}}> {JSON.stringify(title)}</Text>
+    </View>
   )
 }
 
